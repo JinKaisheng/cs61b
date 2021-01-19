@@ -5,7 +5,7 @@ public class Planet{
 	public double yyVel;
 	public double mass;
 	public String imgFileName;
-	public double G=6.67e-11;
+	private double G=6.67e-11;
 
 //here are two constructers
 	public Planet(double xxPos,double yyPos,double xxVel,
