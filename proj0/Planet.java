@@ -28,27 +28,27 @@ public class Planet{
 	}
 
 //this method aim to calculate the distance between this Planet and Planet p
-	double calcDistance(Planet p){
+	public double calcDistance(Planet p){
 		double dx=p.xxPos-this.xxPos;
 		double dy=p.yyPos-this.yyPos;
 		return Math.sqrt(dx*dx+dy*dy);
 	}
 
 //this method aim to calculate the Force between this Planet and Planet p
-	double calcForceExertedBy(Planet p){
+	public double calcForceExertedBy(Planet p){
 		double f=G*this.mass*p.mass/(this.calcDistance(p)*this.calcDistance(p));
 		return f;
 	}
 
 //these method aim to calculate the Forcex and Forcey between this Planet and Planet p
-	double calcForceExertedByX(Planet p){
+	public double calcForceExertedByX(Planet p){
 		double dx=p.xxPos-this.xxPos;
 		double cos=dx/this.calcDistance(p);
 		double fx=this.calcForceExertedBy(p)*cos;
 		return fx;
 	}
 
-	double calcForceExertedByY(Planet p){
+	public double calcForceExertedByY(Planet p){
 		double dy=p.yyPos-this.yyPos;
 		double cos=dy/this.calcDistance(p);
 		double fy=this.calcForceExertedBy(p)*cos;
@@ -56,7 +56,7 @@ public class Planet{
 	}
 
 //these methods aim to calculate Forcex_net and Forcey_net
-	double calcNetForceExertedByX(Planet[] p){
+	public double calcNetForceExertedByX(Planet[] p){
 		double fx_net=0;
 		for(int i=0;i<p.length;i++){
 			if(!this.equals(p[i])){
@@ -66,7 +66,7 @@ public class Planet{
 		return fx_net;
 		}
 
-	double calcNetForceExertedByY(Planet[] p){
+	public double calcNetForceExertedByY(Planet[] p){
 		double fy_net=0;
 		for(int i=0;i<p.length;i++){
 			if(!this.equals(p[i])){
@@ -77,7 +77,7 @@ public class Planet{
 	}
 
 //this method aim to update the basic message of this planet
-	void update(double dt,double fx,double fy){
+	public void update(double dt,double fx,double fy){
 		double ax=fx/this.mass;
 		double ay=fy/this.mass;
 		this.xxVel+=ax*dt;
